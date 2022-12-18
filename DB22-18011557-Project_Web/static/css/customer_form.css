@@ -1,0 +1,27 @@
+.csm-ID {
+    width: 120px;
+    text-align: center;
+}
+
+.csm-name {
+    width: 120px;
+  }
+
+.csm-sex {
+    width: 80px;
+}
+
+.csm-reg {
+    width: 200px;
+    text-align: center;
+}
+
+
+.csm-tel {
+    width: 160px;
+    text-align: center;
+}
+
+.csm-adress {
+    width: 120px;
+}

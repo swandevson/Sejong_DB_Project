@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Search Customer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/customer_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+
+<body>
+  <div class='nav-bar'>
+    <div class='home-button' OnClick='location.href="./"'>
+      <h3>Home</h3>
+    </div>
+  </div>
+  <div class='left-content'>
+    <form action='./search_customer' method='post'>
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>ID </h5>
+          <input name='csm-ID'>
+        </div>
+      </div>
+      
+    <div class='search-content'>
+      <div class='search-div'>
+          <h5>Name </h5>
+          <input name='csm-name'>
+        </div>
+    </div>
+
+    <div class='search-content'>
+      <div class='search-div'>
+        <h5>Order by </h5>
+        <select name='order-by'>
+          <option value='name-asce'>Name in ascending </option>
+          <option value='name-dsce'>Name in dscending</option>
+          <option value='ID-asce'>ID in ascending </option>
+          <option value='ID-dsce'>ID in dscending</option>
+        </select>
+      </div>
+    </div>
+
+      <input class='submit-button' type='submit' value='search'>
+    </form>
+  </div>
+
+  <div class='right-content'>
+    <table>
+      <thead>
+        <tr>
+          <th class='csm-ID'>ID</th>
+          <th class='csm-name'>Name</th>
+          <th class='csm-sex'>Sex</th>
+          <th class='csm-reg'>Register Date</th>
+          <th class='csm-tel'>Tel.</th>
+          <th class='csm-address'>Address</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for csm in csm_list %}
+        <tr>
+          <td class='csm-ID'>{{csm[0]}}</td>
+          <td class='csm-name'>{{csm[1]}}</td>
+          <td class='csm-sex'>{{csm[2]}}</td>
+          <td class='csm-reg'>{{csm[3]}}</td>
+          <td class='csm-tel'>{{csm[4]}}</td>
+          <td class='csm-adress'>{{csm[5]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    
+  </div>
+
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

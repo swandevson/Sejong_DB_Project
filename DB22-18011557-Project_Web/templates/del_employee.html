@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Delete Employee</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/employee_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+
+<body>
+  <div class='nav-bar'>
+    <div class='home-button' OnClick='location.href="./"'>
+      <h3>Home</h3>
+    </div>
+  </div>
+  <div class='left-content'>
+    <form action='./del_employee' method='post'>
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>Name </h5>
+          <input name='employee-name'>
+        </div>
+      </div>
+      
+    <div class='search-content'>
+      <div class='search-div'>
+          <h5>Rank </h5>
+          <select name='rank-name'>
+            <option value='all'>All</option>
+            {% for rank in rank_list %}
+            <option value='{{rank}}'>{{rank}}</option>
+            {% endfor %}
+          </select>
+        </div>
+    </div>
+
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>Career </h5>
+          <input name='career-min' class='career-input' value=0 placeholder='min'>
+          ~
+          <input name='career-max' class='career-input' value=99 placeholder='max'>
+        </div>
+      </div>
+
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>Wage </h5>
+          <input name='wage-min' class='wage-input' value=0 placeholder='min'>
+          ~
+          <input name='wage-max' class='wage-input' value=100000 placeholder='max'>
+        </div>
+      </div>
+
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>Order by </h5>
+          <select name='order-by'>
+            <option value='name-asce'>Name in ascending </option>
+            <option value='name-dsce'>Name in dscending</option>
+            <option value='rank-asce'>Rank in asceding</option>
+            <option value='rank-dsce'>Rank in dscending</option>
+          </select>
+        </div>
+    </div>
+
+      <input class='submit-button' type='submit' value='search'>
+    </form>
+  </div>
+
+  <div class='right-content'>
+    <table>
+      <thead>
+        <tr>
+          <th class='employee-ID'>ID</th>
+          <th class='employee-name'>Name</th>
+          <th class='employee-tel'>Tel.</th>
+          <th class='employee-rank'>Rank</th>
+          <th class='employee-career'>Career</th>
+          <th class='employee-wage'>Wage</th>
+          <th class='employee-del'>Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for employee in employee_list %}
+        <tr>
+          <td class='employee-ID'>{{employee[0]}}</td>
+          <td class='employee-name'>{{employee[1]}}</td>
+          <td class='employee-tel'>{{employee[2]}}</td>
+          <td class='employee-rank'>{{employee[4]}}</td>
+          <td class='employee-career'>{{employee[5]}}</td>
+          <td class='employee-wage'>{{employee[6]}}</td>
+          <td class='employee-del' style = "padding: 0px 2px;">
+            <input class='del-btn' type='button' value='Delete' style="width: 80px;">
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+
+    // if click delete button, submit the row's id value
+    $(".del-btn").click(function(){ 
+			var checkBtn = $(this);
+			
+			var tr = checkBtn.parent().parent();
+			var td = tr.children();
+			
+			
+			var id = td.eq(0).text();
+			
+			console.log(id);
+      
+      
+      document.write('<form action="./del_employee" id="smb_form" method="post"><input type="hidden" name="employee-ID" value="'+ id +'"></form>');
+      document.getElementById("smb_form").submit();
+			
+		});
+  </script>
+</body>
+
+</html>

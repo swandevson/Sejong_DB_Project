@@ -1,0 +1,32 @@
+.ABV-input {
+    width: 60px;
+  }
+  
+.beer-ID {
+    width: 60px;
+    text-align: center;
+  }
+  
+  .beer-name {
+    width: 240px;
+  }
+  
+  .beer-dist {
+    width: 200px;
+  }
+  
+  .beer-ctg {
+    width: 120px;
+  }
+  
+  .beer-ABV {
+    width: 60px;
+  }
+  
+  .beer-price {
+    width: 100px;
+  }
+  
+  .beer-stock {
+    width: 80px;
+  }

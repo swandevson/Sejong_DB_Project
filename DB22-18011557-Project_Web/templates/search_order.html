@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Search Order</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/order_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+
+<body>
+  <div class='nav-bar'>
+    <div class='home-button' OnClick='location.href="./"'>
+      <h3>Home</h3>
+    </div>
+  </div>
+  
+  <div class='left-content'>
+    <form action='./search_order' method='post'>
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>ID </h5>
+          <input name='csm-ID'>
+        </div>
+      </div>
+      
+    <div class='search-content'>
+      <div class='search-div'>
+          <h5>Name </h5>
+          <input name='csm-name'>
+        </div>
+    </div>
+
+      
+      <input class='submit-button' type='submit' value='search'>
+    </form>
+  </div>
+
+  <div class='right-content'>
+    <table>
+      <thead>
+        <tr>
+          <th class='log-ID'>Order No.</th>
+          <th class='csm-ID'>ID</th>
+          <th class='csm-name'>Name</th>
+          <th class='beer-name'>Beer</th>
+          <th class='beer-num'>EA</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for order in order_list %}
+        <tr>
+          <td class='log-ID'>{{order[0]}}</td>
+          <td class='csm-ID'>{{order[1]}}</td>
+          <td class='csm-name'>{{order[2]}}</td>
+          <td class='beer-name'>{{order[3]}}</td>
+          <td class='beer-num'>{{order[4]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    
+  </div>
+
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Search Beer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/beer_form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+
+<body>
+  <div class='nav-bar'>
+    <div class='home-button' OnClick='location.href="./"'>
+      <h3>Home</h3>
+    </div>
+  </div>
+  
+  <div class='left-content'>
+    <form action='./search_beer' method='post'>
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>Name </h5>
+          <input name='beer-name'>
+        </div>
+      </div>
+      
+    <div class='search-content'>
+      <div class='search-div'>
+          <h5>Category </h5>
+          <select name='category'>
+            <option value='all'>All</option>
+            {% for ctg in ctg_list %}
+            <option value='{{ctg[0]}}'>{{ctg[1]}}</option>
+            {% endfor %}
+          </select>
+        </div>
+    </div>
+
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>ABV </h5>
+          <input name='ABV-min' class='ABV-input' value=0 placeholder='min'>
+          ~
+          <input name='ABV-max' class='ABV-input' value=99 placeholder='max'>
+        </div>
+      </div>
+
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>Distributor </h5>
+          <select name='distributor'>
+            <option value='all'>All</option>
+            {% for dist in dist_list %}
+            <option value='{{dist}}'>{{dist}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class='search-content'>
+        <div class='search-div'>
+          <h5>Order by </h5>
+          <select name='order-by'>
+            <option value='name-asce'>Name in ascending </option>
+            <option value='name-dsce'>Name in dscending</option>
+            <option value='ABV-asce'>ABV in asceding</option>
+            <option value='ABV-dsce'>ABV in dscending</option>
+          </select>
+        </div>
+    </div>
+
+      <input class='submit-button' type='submit' value='search'>
+    </form>
+  </div>
+
+  <div class='right-content'>
+    <table>
+      <thead>
+        <tr>
+          <th class='beer-ID'>ID</th>
+          <th class='beer-name'>Name</th>
+          <th class='beer-dist'>Distributor</th>
+          <th class='beer-ctg'>Category</th>
+          <th class='beer-ABV'>ABV</th>
+          <th class='beer-price'>Price</th>
+          <th class='beer-Stock'>Stock</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for beer in beer_list %}
+        <tr>
+          <td class='beer-ID'>{{beer[0]}}</td>
+          <td class='beer-name'>{{beer[1]}}</td>
+          <td class='beer-dist'>{{beer[2]}}</td>
+          <td class='beer-ctg'>{{beer[4]}}</td>
+          <td class='beer-ABV'>{{beer[5]}}</td>
+          <td class='beer-price'>{{beer[6]}}</td>
+          <td class='beer-stock'>{{beer[7]}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    
+  </div>
+
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

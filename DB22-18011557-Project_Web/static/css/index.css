@@ -1,0 +1,51 @@
+html, body {
+    height: 99%;
+}
+
+
+
+
+.wrapper {
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.view-table {
+    margin: auto;
+}
+table {
+    border-top: 3px solid #168;
+    border-bottom: 3px solid #168;
+}
+th {
+    color: #168;
+    background: #f0f6f9;
+    font-size: 40px;
+    height: 80px;
+    margin: 40px 0px;
+    border-bottom: 3px solid #168;
+    
+}
+
+.menu-button {
+    border: 2px solid #ddd;
+    height: 100px;
+    width: 200px;
+    display: table-cell;
+    text-align: center;
+    vertical-align:middle;
+}
+
+.menu-button:hover {
+    background: #ddf;
+}
+
+.menu-button:hover {
+    cursor: pointer;
+}
+
+
+.update-table {
+    margin: auto auto 60px auto;
+}

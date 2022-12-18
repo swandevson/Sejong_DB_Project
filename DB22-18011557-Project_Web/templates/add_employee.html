@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Add Employee</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/add_form.css') }}">
+</head>
+
+<body>
+    <div class='nav-bar'>
+        <div class='home-button' OnClick='location.href="./"'>
+            <h3>Home</h3>
+        </div>
+    </div>
+  
+    <div class='main-content'>
+        <form action='./add_employee' method='post'>
+          <div class='input-content'>
+            <h5>ID </h5>
+            <input name='employee-ID' required>
+          </div>
+
+          <div class='input-content'>
+            <h5>Name </h5>
+            <input name='employee-name' required>
+          </div>
+
+
+          <div class='input-content'>
+            <h5>Tel. 
+            (without '-')</h5>
+            <input name='employee-tel' required>
+          </div>
+
+          <div class='input-content'>
+            <h5>Career </h5>
+            <input name='employee-career' required>
+          </div>
+
+          <div class='input-content'>
+            <h5>Rank </h5>
+            <select name='rank-name'>
+              {% for rank in rank_list %}
+              <option value='{{rank[0]}}'>{{rank[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          
+
+          <input class='submit-button' type='submit' value='submit' onclick='alert("Add Success!")'>
+        </form>
+    </div>
+
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

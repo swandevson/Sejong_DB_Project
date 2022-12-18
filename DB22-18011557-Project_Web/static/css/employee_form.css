@@ -1,0 +1,32 @@
+.career-input {
+    width: 30px;
+}
+
+.wage-input {
+    width: 80px;
+}
+
+.employee-ID {
+    width: 60px;
+    text-align: center;
+}
+
+.employee-name {
+    width: 120px;
+  }
+
+.employee-tel {
+    width: 200px;
+    text-align: center;
+}
+.employee-rank {
+    width: 180px;
+}
+
+.employee-career {
+    width: 50px;
+}
+
+.employee-wage {
+    width: 120px;
+}

@@ -1,0 +1,68 @@
+html, body {
+  height: 99%;
+}
+
+.nav-bar {
+  border-bottom: 2px solid #000;
+  margin-bottom: 10px;
+}
+
+.home-button {
+  display: inline-block;
+}
+.home-button:hover {
+  cursor: pointer;
+}
+
+
+.left-content {
+  float: left;
+  width: 300px;
+  height: 93%;
+  border-right: 2px solid #000;
+}
+
+.right-content {
+  position: absolute;
+  margin-left: 10px;
+  left: 310px;
+  min-width: 1200px;
+}
+
+
+.search-div {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 10px;
+}
+
+h5 {
+  width: 80px;
+  float: left;
+}
+
+input {
+  display: inline-block;
+  
+  width: 160px;
+}
+
+select {
+  display: inline-block;
+  vertical-align: middle;
+  width: 160px;
+}
+
+
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+
+  width: 100px;
+}
+
+

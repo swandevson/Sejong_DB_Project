@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Add Beer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/add_form.css') }}">
+  <link rel="stylesheet" href="../static/css/add_form.css">
+</head>
+
+<body>
+    <div class='nav-bar'>
+        <div class='home-button' OnClick='location.href="./"'>
+            <h3>Home</h3>
+        </div>
+    </div>
+  
+    <div class='main-content'>
+        <form action='./add_beer' method='post'>
+          <div class='input-content'>
+            <h5>ID </h5>
+            <input name='beer-ID' required>
+          </div>
+
+          <div class='input-content'>
+            <h5>Name </h5>
+            <input name='beer-name' required>
+          </div>
+
+          <div class='input-content'>
+            <h5>Category </h5>
+            <select name='beer-ctg'>
+              {% for ctg in ctg_list %}
+              <option value='{{ctg[0]}}'>{{ctg[1]}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class='input-content'>
+            <h5>ABV </h5>
+            <input name='beer-ABV' required>
+          </div>
+
+          <div class='input-content'>
+            <h5>Distributor </h5>
+            <select name='beer-dist'>
+            {% for dist in dist_list %}
+            <option value='{{dist}}'>{{dist}}</option>
+            {% endfor %}
+            </select>
+          </div>
+
+          <div class='input-content'>
+            <h5>Price </h5>
+            <input name='beer-price' required>
+          </div>
+
+          <div class='input-content'>
+            <h5>Stock</h5>
+            <input name='beer-stock' required>
+          </div>
+
+          <input class='submit-button' type='submit' value='submit' onclick='alert("Add Success!")'>
+        </form>
+    </div>
+
+  
+  <script src="script.js"></script>
+</body>
+
+</html>

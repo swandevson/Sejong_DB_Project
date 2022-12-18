@@ -1,0 +1,62 @@
+html, body {
+    height: 99%;
+  }
+  
+  .nav-bar {
+    border-bottom: 2px solid #000;
+    margin-bottom: 10px;
+  }
+  
+  .home-button {
+    display: inline-block;
+  }
+  .home-button:hover {
+    cursor: pointer;
+  }
+
+.main-content {
+    width: 300px;
+    
+    border: solid 3px black;
+}
+
+.input-content {
+    height: 100px;
+}
+
+
+h5 {
+    width: 80px;
+    float: left;
+  }
+  
+
+.main-content {
+    width: 600px;
+    margin: auto;
+}
+
+.input-content {
+    height: 60px;
+    padding: 10px;
+    
+    display: flex;
+    margin: auto;
+    align-items: center;
+}
+  
+input {
+    width: 400px;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+
+    width: 100px;
+}
+
+
+  
